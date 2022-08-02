@@ -1,0 +1,185 @@
+&nbsp;
+<h2>WE WOULD RECOMMEND THE BELOW STOCKS FOR YOUR MARKET CAP</h2>
+
+ <!-- <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Name</th>
+          <th scope="col">Market Open Price</th>
+          <th scope="col">Current price</th>
+          <th scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1,001</td>
+          <td>random</td>
+          <td>data</td>
+          <td>placeholder</td>
+          <td>text</td>
+        </tr>
+        <tr>
+          <td>1,002</td>
+          <td>placeholder</td>
+          <td>irrelevant</td>
+          <td>visual</td>
+          <td>layout</td>
+        </tr>
+        <tr>
+          <td>1,003</td>
+          <td>data</td>
+          <td>rich</td>
+          <td>dashboard</td>
+          <td>tabular</td>
+        </tr>
+        <tr>
+          <td>1,003</td>
+          <td>information</td>
+          <td>placeholder</td>
+          <td>illustrative</td>
+          <td>data</td>
+        </tr>
+        <tr>
+          <td>1,004</td>
+          <td>text</td>
+          <td>random</td>
+          <td>layout</td>
+          <td>dashboard</td>
+        </tr>
+        <tr>
+          <td>1,005</td>
+          <td>dashboard</td>
+          <td>irrelevant</td>
+          <td>text</td>
+          <td>placeholder</td>
+        </tr>
+        <tr>
+          <td>1,006</td>
+          <td>dashboard</td>
+          <td>illustrative</td>
+          <td>rich</td>
+          <td>data</td>
+        </tr>
+        <tr>
+          <td>1,007</td>
+          <td>placeholder</td>
+          <td>tabular</td>
+          <td>information</td>
+          <td>irrelevant</td>
+        </tr>
+        <tr>
+          <td>1,008</td>
+          <td>random</td>
+          <td>data</td>
+          <td>placeholder</td>
+          <td>text</td>
+        </tr>
+        <tr>
+          <td>1,009</td>
+          <td>placeholder</td>
+          <td>irrelevant</td>
+          <td>visual</td>
+          <td>layout</td>
+        </tr>
+        <tr>
+          <td>1,010</td>
+          <td>data</td>
+          <td>rich</td>
+          <td>dashboard</td>
+          <td>tabular</td>
+        </tr>
+        <tr>
+          <td>1,011</td>
+          <td>information</td>
+          <td>placeholder</td>
+          <td>illustrative</td>
+          <td>data</td>
+        </tr>
+        
+      </tbody>
+    </table>
+</div> -->
+
+
+        
+
+<div class="row">
+    <div class="col-sm" (click)="callFun('Large Cap')" id="capHead">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Large Cap</h5>
+          <p class="card-text">Check out for large cap values here</p>
+          <a href="#" class="btn btn-primary">clickHere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm" (click)="callFun('Mid Cap')" id="capHead">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Mid Cap</h5>
+          <p class="card-text">Check out for mid cap values here</p>
+          <a href="#" class="btn btn-primary">clickHere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm" (click)="callFun('Small Cap')" id="capHead">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Small Cap</h5>
+          <p class="card-text">Check out for small cap values here</p>
+          <a href="#" class="btn btn-primary">clickHere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm" (click)="getRecommendations(stocks[0].marketCap)" id="capHead"  >
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Recommend Stocks</h5>
+          <p class="card-text">Check for top 5 stock values</p>
+          <a href="#" class="btn btn-primary">clickHere</a>
+        </div>
+      </div>
+    </div>
+    
+</div>
+    
+    
+
+
+
+<div  class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+  <table class="table table-striped table-sm" id="dataTable">
+    <thead>
+        <tr>
+            <th>Stock ID</th>
+            <th>Name</th>
+            <th>Two week high</th>
+            <th>Two week low</th>
+            <th>Last closing price</th>
+            <th>Today Open Price</th>
+            <th>Current market price</th>
+            <th>Quantity</th>
+            
+        </tr>
+    </thead>
+    <tbody *ngIf="stocks!=null">
+        <tr *ngFor="let stock of stocks">
+            <td>{{stock.StockID}}</td>
+            <td>{{stock.Name}}</td>
+            <td>{{stock.Twoweekhigh}}</td>
+            <td>{{stock.Twoweeklow}}</td>
+            <td>{{stock.Lastclosingprice}}</td>
+            <td>{{stock.TodayOpenPrice}}</td>
+            <td>{{stock.Currentmarketprice}}</td>
+            <td>{{stock.Quantity}}</td>
+            <td><input type="number" (keyup)="onKey($event)"></td>
+            <td > <button class=" btn btn-primary" (click)="saveStock(stock)">Save</button></td>
+            <!-- <td *ngIf="saved">Saved</td> -->
+        </tr>
+        
+    </tbody>
+    
+  </table>
+</div>
